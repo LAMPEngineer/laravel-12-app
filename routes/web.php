@@ -8,13 +8,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 use Illuminate\Support\Facades\Mail;
 
-Route::get('send-mail', function(){
-   Mail::to('lamp.engineer@gmail.com')->send(
-      new \App\Mail\JobPosted()
-   );
-
-   dd('Done');
-});
 
 Route::get('test-mail', [MailController::class, 'index']);
 

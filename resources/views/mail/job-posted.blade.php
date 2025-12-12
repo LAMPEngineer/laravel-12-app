@@ -1,4 +1,11 @@
-<div>
-    <h1>Laravel 12 Mail</h1>
-    <p>This is test mail.</p>
-</div>
+<h2>
+    {{ $job->title }}
+</h2>
+
+<p>
+    Congrats! Your job is now live on our website.
+</p>
+
+<p>
+    <a href="{{ url('/jobs/' . $job->id) }}">View Your Job Listing</a>
+</p>
