@@ -4,13 +4,24 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
+use App\Jobs\TranslateJob;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 use Illuminate\Support\Facades\Mail;
 
 
-Route::get('test-mail', [MailController::class, 'index']);
+Route::get('test-queue', function(){
 
+   $job = Job::first();
+
+   TranslateJob::dispatch($job);
+
+   return 'Done';
+
+});
+
+
+Route::get('test-mail', [MailController::class, 'index']);
 
 Route::view('/', 'home' );
 Route::view('/about','about');
